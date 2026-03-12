@@ -33,6 +33,8 @@
     "\"API key format: bce-v3/ALTAK-...\"": "\"API 密钥格式: bce-v3/ALTAK-...\"",
     "promptMessage: \"Enter QIANFAN API key\"": "promptMessage: \"输入千帆 API 密钥\"",
     "promptMessage: \"Enter Kilo Gateway API key\"": "promptMessage: \"输入 Kilo Gateway API 密钥\"",
+    "message: \"Select Z.AI endpoint\"": "message: \"选择 Z.AI 端点\"",
+    "promptMessage: \"Enter LiteLLM API key\"": "promptMessage: \"输入 LiteLLM API 密钥\"",
     "\"Go provides access to Kimi, GLM, and MiniMax models through the Go catalog.\"": "\"通过 Go 目录访问 Kimi、GLM 和 MiniMax 模型。\"",
     "\"Choose the Go catalog when you want the OpenCode-hosted Kimi/GLM/MiniMax lineup.\"": "\"选择 Go 目录以使用 OpenCode 托管的 Kimi/GLM/MiniMax 模型。\"",
     "\"Zen provides access to Claude, GPT, Gemini, and more models.\"": "\"Zen 提供对 Claude、GPT、Gemini 等模型的访问。\"",
