@@ -286,15 +286,20 @@
             }
         })();
 
+        // Get doc ID from ?doc= query parameter
+        function getDocParam() {
+            return new URLSearchParams(location.search).get('doc') || '';
+        }
+
         // Initialize
         async function init() {
             try {
                 const res = await fetch('docs-index.json');
                 docsIndex = await res.json();
                 renderSidebar();
-                const hash = location.hash.slice(1);
-                if (hash.startsWith('doc/')) {
-                    loadDoc(hash.slice(4));
+                const docId = getDocParam();
+                if (docId && findDoc(docId)) {
+                    loadDoc(docId);
                 } else {
                     renderIndex();
                 }
@@ -321,7 +326,7 @@
             for (const cat of docsIndex.categories) {
                 html += `<div class="sidebar-category"><span class="sidebar-icon">${icon(cat.icon)}</span> ${cat.title}</div>`;
                 for (const doc of cat.docs) {
-                    html += `<a class="sidebar-item" data-id="${doc.id}" href="#doc/${doc.id}" onclick="navigateTo('${doc.id}');return false;">${doc.title}</a>`;
+                    html += `<a class="sidebar-item" data-id="${doc.id}" href="?doc=${doc.id}" onclick="navigateTo('${doc.id}');return false;">${doc.title}</a>`;
                 }
                 html += '<div class="sidebar-divider"></div>';
             }
@@ -355,7 +360,7 @@
                 window.scrollTo(0, 0);
                 return;
             }
-            location.hash = 'doc/' + id;
+            history.pushState(null, '', '?doc=' + id);
             loadDoc(id);
         }
 
@@ -443,18 +448,14 @@
             main.innerHTML = html;
         }
 
-        // Hash change — #doc/xxx = load document, #xxx = scroll to anchor
-        window.addEventListener('hashchange', () => {
-            const hash = location.hash.slice(1);
-            if (!hash) { renderIndex(); return; }
-            if (hash.startsWith('doc/')) {
-                const docId = hash.slice(4);
-                if (docId !== currentDocId) loadDoc(docId);
-                return;
+        // Browser back/forward
+        window.addEventListener('popstate', () => {
+            const docId = getDocParam();
+            if (docId && findDoc(docId)) {
+                loadDoc(docId);
+            } else {
+                renderIndex();
             }
-            // Plain anchor — scroll within current page
-            const el = document.getElementById(hash) || document.querySelector(`[name="${hash}"]`) || document.querySelector(`a[id="${hash}"]`);
-            if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
         });
 
         init();
