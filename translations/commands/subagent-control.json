@@ -1,0 +1,5 @@
+{
+  "file": "src/agents/subagent-control.ts",
+  "description": "子代理控制目标解析错误",
+  "replacements": {}
+}

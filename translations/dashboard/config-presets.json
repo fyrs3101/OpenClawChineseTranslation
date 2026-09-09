@@ -1,0 +1,10 @@
+{
+  "file": "ui/src/pages/config/presets.ts",
+  "description": "Dashboard 设置页 - 配置预设标签和描述（v2026.5.3 上游新增）",
+  "replacements": {
+    "    label: \"Personal Assistant\",\n    description: \"Balanced default for daily use.\",": "    label: \"个人助手\",\n    description: \"日常使用的均衡默认值。\",",
+    "    label: \"Code Agent\",\n    description: \"Highest context budget for repo work.\",": "    label: \"代码代理\",\n    description: \"代码仓库工作场景的最大上下文预算。\",",
+    "    label: \"Team Bot\",\n    description: \"Lean follow-ups for shared bots.\",": "    label: \"团队机器人\",\n    description: \"共享机器人场景的精简跟进。\",",
+    "    label: \"Minimal\",\n    description: \"Smallest context budget and lowest cost.\",": "    label: \"极简\",\n    description: \"最小的上下文预算与最低成本。\","
+  }
+}

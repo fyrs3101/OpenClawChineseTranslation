@@ -1,11 +1,5 @@
 {
-  "file": "ui/src/ui/views/markdown-sidebar.ts",
+  "file": "ui/src/pages/chat/components/chat-sidebar.ts",
   "description": "Dashboard Markdown 侧边栏",
-  "replacements": {
-    "|| \"Render Preview\" : \"Tool Details\"": "|| \"渲染预览\" : \"工具详情\"",
-    "|| \"Render preview\"": "|| \"渲染预览\"",
-    ">No content available<": ">暂无内容<",
-    "\"Close sidebar\"": "\"关闭侧边栏\"",
-    "View Raw Text": "查看原始文本"
-  }
+  "replacements": {}
 }

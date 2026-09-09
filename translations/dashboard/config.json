@@ -1,24 +1,5 @@
 {
-  "file": "ui/src/ui/views/config.ts",
+  "file": "ui/src/pages/config/view.ts",
   "description": "Dashboard 配置页面",
-  "replacements": {
-    "placeholder=\"Search settings...\"": "placeholder=\"搜索设置...\"",
-    "\"Unsaved changes\"": "\"未保存的更改\"",
-    "`${diff.length} unsaved change${diff.length !== 1 ? \"s\" : \"\"}`": "`${diff.length} 项未保存更改`",
-    "<span class=\"config-status muted\">No changes</span>": "<span class=\"config-status muted\">无更改</span>",
-    "${props.saving ? \"Saving…\" : \"Save\"}": "${props.saving ? \"保存中…\" : \"保存\"}",
-    "${props.applying ? \"Applying…\" : \"Apply\"}": "${props.applying ? \"应用中…\" : \"应用\"}",
-    "${props.updating ? \"Updating…\" : \"Update\"}": "${props.updating ? \"更新中…\" : \"更新\"}",
-    "<span>Loading schema…</span>": "<span>加载架构中…</span>",
-    "Raw config (JSON/JSON5)": "原始配置 (JSON/JSON5)",
-    "props.navRootLabel ?? \"Settings\"": "props.navRootLabel ?? \"设置\"",
-    "${icons.fileText} Open": "${icons.fileText} 打开",
-    "Your configuration is invalid. Some settings may not work as expected.": "您的配置无效。某些设置可能无法按预期工作。",
-    "? \"Hide env values\" : \"Reveal env values\"": "? \"隐藏环境值\" : \"显示环境值\"",
-    ">\n                        Peek\n                      </button>": ">\n                        查看\n                      </button>",
-    "{ id: \"other\", label: \"Other\"": "{ id: \"other\", label: \"其他\"",
-    "id: \"custom\",\n      label: \"Custom\"": "id: \"custom\",\n      label: \"自定义\"",
-    "? \"Replace custom theme\"": "? \"替换自定义主题\"",
-    "title=${props.configPath ? `Open ${props.configPath}` : \"Open config file\"}": "title=${props.configPath ? `打开 ${props.configPath}` : \"打开配置文件\"}"
-  }
+  "replacements": {}
 }

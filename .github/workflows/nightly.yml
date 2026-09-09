@@ -35,7 +35,7 @@ on:
 
 env:
   UPSTREAM_REPO: openclaw/openclaw
-  NODE_VERSION: '22'
+  NODE_VERSION: '24.16.0'
 
 permissions:
   contents: write
@@ -148,6 +148,7 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
 
       - name: 发布到 npm (nightly 标签)
+        if: vars.ENABLE_NPM_NIGHTLY == 'true'
         working-directory: openclaw
         # 使用 --ignore-scripts 跳过 prepack 脚本，因为代码已在 build job 中构建完成
         run: npm publish --access public --tag nightly --ignore-scripts
@@ -156,6 +157,7 @@ jobs:
         continue-on-error: true
 
       - name: 同步 npmmirror 镜像源
+        if: vars.ENABLE_NPM_NIGHTLY == 'true'
         run: |
           echo "🔄 触发 npmmirror 同步..."
           # 主动触发 npmmirror 同步，解决国内镜像源版本滞后问题
@@ -238,6 +240,7 @@ jobs:
       # ==================== Docker 镜像构建与推送 ====================
       - name: 设置 Docker Buildx
         uses: docker/setup-buildx-action@v3
+        continue-on-error: true
 
       - name: 登录 GitHub Container Registry
         uses: docker/login-action@v3
@@ -245,6 +248,7 @@ jobs:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
+        continue-on-error: true
 
       - name: 准备 Docker 元数据
         id: docker_meta
@@ -254,6 +258,7 @@ jobs:
           tags: |
             type=raw,value=nightly
             type=raw,value=${{ needs.check-upstream.outputs.nightly_version }}
+        continue-on-error: true
 
       - name: 构建并推送 Docker 镜像
         uses: docker/build-push-action@v5
